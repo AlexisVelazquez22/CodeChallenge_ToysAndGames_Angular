@@ -1,0 +1,39 @@
+
+
+<h1 mat-dialog-title> {{ (product != null) ? 'Update Product' : 'New Product' }} </h1>
+
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Age</mat-label>
+    <input matInput [(ngModel)]="ageRestriction">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Price</mat-label>
+    <input matInput [(ngModel)]="price">
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <mat-label>Company</mat-label>
+    <input matInput [(ngModel)]="company_Id">
+  </mat-form-field> -->
+
+</div>
+
+<div mat-dialog-actions>
+
+  <button mat-raised-button color="primary" (click)='product != null ? editProduct() : addProduct()'>Save</button>
+  <button mat-raised-button color="warn" (click)="closeForm()">Cancel</button>
+
+</div>
