@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Company } from '../models/company.interface';
 import { Product } from '../models/product.interface';
 
 const httpOptions = {
@@ -33,6 +34,10 @@ export class ProductService {
 
   deleteProuct(id: number): Observable<Response>{
     return this._http.delete<Response>(`${this.url}/eliminate/${id}`, httpOptions);
+  }
+
+  deployCompany(): Observable<Company[]>{
+    return this._http.get<Company[]>(`${this.url}/show-companies`);
   }
 
 }

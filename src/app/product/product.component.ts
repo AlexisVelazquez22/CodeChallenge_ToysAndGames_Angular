@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
 
   //public lst: any[];
   public lst: Product[];
-  public columnNames: string[] = ['Id', 'Name', 'Age', 'Description', 'Price', 'Company_Id', 'Actions'];
+  public columnNames: string[] = ['Id', 'Name', 'Age', 'Description', 'Company Id', 'Company', 'Price', 'Actions'];
 
   constructor(
     private _productService: ProductService,
@@ -47,6 +47,8 @@ export class ProductComponent implements OnInit {
       data: product
     });
 
+    console.log(product);
+
     dialogRef.updateSize('245px', '455px');
     dialogRef.afterClosed().subscribe(() => {
       this.getProducts();
@@ -59,7 +61,7 @@ export class ProductComponent implements OnInit {
     dialogRef.updateSize('245px', '245px');
     dialogRef.afterClosed().subscribe(res => {
       if(res){
-        this._productService.deleteProuct(product.id).subscribe(() => {
+        this._productService.deleteProuct(product.product_Id).subscribe(() => {
           this.snack.open('Product deleted', '', {
             duration: 2000
           });

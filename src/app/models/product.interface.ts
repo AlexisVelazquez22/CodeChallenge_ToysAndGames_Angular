@@ -1,10 +1,11 @@
 export interface Product{
 
-  id: number;
+  product_Id: number;
   name: string;
   description: string;
   ageRestriction: number;
-  price: number;
   company_Id: number;
+  company_Name: string;
+  price: number;
 
 }
