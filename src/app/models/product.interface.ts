@@ -1,11 +1,9 @@
-export interface Product{
-
-  product_Id: number;
+export interface Product {
+  productId: number;
   name: string;
   description: string;
   ageRestriction: number;
-  company_Id: number;
-  company_Name: string;
+  companyId: number;
+  title: string;
   price: number;
-
 }
