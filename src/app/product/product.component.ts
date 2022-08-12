@@ -13,9 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductComponent implements OnInit {
 
-  //public lst: any[];
   public lst: Product[];
-  public columnNames: string[] = ['Id', 'Name', 'Age', 'Description', 'Company Id', 'Company', 'Price', 'Actions'];
+  public columnNames: string[] = ['Id', 'Name', 'Age', 'Description', 'Company', 'Price', 'Actions'];
 
   constructor(
     private _productService: ProductService,
@@ -27,9 +26,9 @@ export class ProductComponent implements OnInit {
   }
 
   getProducts(){
-    this._productService.getProduct().subscribe(response => {
+    this._productService.getProduct().subscribe( response => {
       this.lst = response;
-      //console.log(this.lst);
+      console.log(this.lst);
     });
   }
 
@@ -46,7 +45,6 @@ export class ProductComponent implements OnInit {
     const dialogRef = this.dialog.open(InputFormComponent, {
       data: product
     });
-
     console.log(product);
 
     dialogRef.updateSize('245px', '455px');
@@ -55,13 +53,13 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  deleteProduct(product: Product){
+  deleteProduct(id: number){
     const dialogRef = this.dialog.open(DeleteDialogComponent);
 
     dialogRef.updateSize('245px', '245px');
     dialogRef.afterClosed().subscribe(res => {
       if(res){
-        this._productService.deleteProuct(product.product_Id).subscribe(() => {
+        this._productService.deleteProuct(id).subscribe(() => {
           this.snack.open('Product deleted', '', {
             duration: 2000
           });

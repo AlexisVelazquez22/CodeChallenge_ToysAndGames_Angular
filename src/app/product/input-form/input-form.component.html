@@ -4,29 +4,29 @@
 
   <mat-form-field>
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="name">
+    <input matInput [(ngModel)]="productResponse.name">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Age</mat-label>
-    <input type="number" min="0" max="100" matInput [(ngModel)]="ageRestriction">
+    <input type="number" min="0" max="100" matInput [(ngModel)]="productResponse.ageRestriction">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Description</mat-label>
-    <textarea matInput [(ngModel)]="description"></textarea>
+    <textarea matInput [(ngModel)]="productResponse.description"></textarea>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Price</mat-label>
-    <input matInput [(ngModel)]="price">
+    <input matInput [(ngModel)]="productResponse.price">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Company</mat-label>
-    <mat-select matInput [(ngModel)]="company_Id">
-      <mat-option *ngFor="let company of lstCompanies" [value]="company.id">
-        {{ company.company_Name }}
+    <mat-select matInput [(ngModel)]="productResponse.companyId">
+      <mat-option *ngFor="let company of lstCompanies" [value]="company.companyId">
+        {{ company.title }}
       </mat-option>
     </mat-select>
   </mat-form-field>
